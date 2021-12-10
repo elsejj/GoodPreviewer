@@ -2,12 +2,14 @@
 #include <Scintilla.h>
 #include <atlstr.h>
 
+#define _A
+
 using namespace ATL;
 
-void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
+void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CStringA & ext){
 
-	USES_CONVERSION;
-	set(ptr, SCI_SETLEXERLANGUAGE, NULL, (sptr_t)(CT2CA(ext).m_psz));
+	//USES_CONVERSION;
+	//set(ptr, SCI_SETLEXERLANGUAGE, NULL, (sptr_t)(CT2CA(ext).m_psz));
 
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
@@ -28,7 +30,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETBACK, 28, 0x858A88);
 	set(ptr, SCI_STYLESETBACK, 27, 0x117DC1);
 	set(ptr, SCI_STYLESETBACK, 26, 0x1F87F5);
-	if (ext.CompareNoCase(_T("c")) == 0){
+	if (ext.CompareNoCase(_A("c")) == 0){
 	set(ptr, SCI_STYLESETFORE, 9, 0x1F87F5);
 	set(ptr, SCI_STYLESETBACK, 9, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 11, 0x4C4D4D);
@@ -62,7 +64,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 18, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 18, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("cpp")) == 0){
+	if (ext.CompareNoCase(_A("cpp")) == 0){
 	set(ptr, SCI_STYLESETFORE, 9, 0x1F87F5);
 	set(ptr, SCI_STYLESETBACK, 9, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 11, 0x4C4D4D);
@@ -96,7 +98,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 18, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 18, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("java")) == 0){
+	if (ext.CompareNoCase(_A("java")) == 0){
 	set(ptr, SCI_STYLESETFORE, 9, 0x1F87F5);
 	set(ptr, SCI_STYLESETBACK, 9, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 11, 0x4C4D4D);
@@ -130,7 +132,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 18, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 18, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("cs")) == 0){
+	if (ext.CompareNoCase(_A("cs")) == 0){
 	set(ptr, SCI_STYLESETFORE, 9, 0x1F87F5);
 	set(ptr, SCI_STYLESETBACK, 9, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 11, 0x4C4D4D);
@@ -164,7 +166,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 18, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 18, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("rc")) == 0){
+	if (ext.CompareNoCase(_A("rc")) == 0){
 	set(ptr, SCI_STYLESETFORE, 9, 0x1F87F5);
 	set(ptr, SCI_STYLESETBACK, 9, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 11, 0x4C4D4D);
@@ -198,7 +200,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 18, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 18, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("tcl")) == 0){
+	if (ext.CompareNoCase(_A("tcl")) == 0){
 	set(ptr, SCI_STYLESETFORE, 9, 0x1F87F5);
 	set(ptr, SCI_STYLESETBACK, 9, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 11, 0x4C4D4D);
@@ -232,7 +234,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 18, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 18, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("objc")) == 0){
+	if (ext.CompareNoCase(_A("objc")) == 0){
 	set(ptr, SCI_STYLESETFORE, 19, 0xA85989);
 	set(ptr, SCI_STYLESETBACK, 19, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 11, 0x4C4D4D);
@@ -270,7 +272,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 18, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 18, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("sql")) == 0){
+	if (ext.CompareNoCase(_A("sql")) == 0){
 	set(ptr, SCI_STYLESETFORE, 5, 0x9F993E);
 	set(ptr, SCI_STYLESETBACK, 5, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 4, 0x2928C8);
@@ -286,7 +288,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 2, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 2, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("html")) == 0){
+	if (ext.CompareNoCase(_A("html")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 9, 0x8C908E);
@@ -314,7 +316,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 10, 0x1F87F5);
 	set(ptr, SCI_STYLESETBACK, 10, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("php")) == 0){
+	if (ext.CompareNoCase(_A("php")) == 0){
 	set(ptr, SCI_STYLESETFORE, 18, 0xD6D8D5);
 	set(ptr, SCI_STYLESETBACK, 18, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 118, 0x4C4D4D);
@@ -338,7 +340,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 127, 0x9F993E);
 	set(ptr, SCI_STYLESETBACK, 127, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("javascript")) == 0){
+	if (ext.CompareNoCase(_A("javascript")) == 0){
 	set(ptr, SCI_STYLESETFORE, 41, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 41, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 45, 0x2928C8);
@@ -364,7 +366,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 44, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 44, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("asp")) == 0){
+	if (ext.CompareNoCase(_A("asp")) == 0){
 	set(ptr, SCI_STYLESETFORE, 81, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 81, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 82, 0x8C908E);
@@ -384,7 +386,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 16, 0xD6D8D5);
 	set(ptr, SCI_STYLESETBACK, 16, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("xml")) == 0){
+	if (ext.CompareNoCase(_A("xml")) == 0){
 	set(ptr, SCI_STYLESETFORE, 12, 0xD6D8D5);
 	set(ptr, SCI_STYLESETBACK, 12, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 13, 0xD6D8D5);
@@ -414,7 +416,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 17, 0x9F993E);
 	set(ptr, SCI_STYLESETBACK, 17, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("ini")) == 0){
+	if (ext.CompareNoCase(_A("ini")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -426,7 +428,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 4, 0xAE7142);
 	set(ptr, SCI_STYLESETBACK, 4, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("props")) == 0){
+	if (ext.CompareNoCase(_A("props")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -436,7 +438,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 4, 0xAE7142);
 	set(ptr, SCI_STYLESETBACK, 4, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("diff")) == 0){
+	if (ext.CompareNoCase(_A("diff")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -452,11 +454,11 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 6, 0xAE7142);
 	set(ptr, SCI_STYLESETBACK, 6, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("nfo")) == 0){
+	if (ext.CompareNoCase(_A("nfo")) == 0){
 	set(ptr, SCI_STYLESETFORE, 32, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 32, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("makefile")) == 0){
+	if (ext.CompareNoCase(_A("makefile")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -472,7 +474,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 9, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 9, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("vb")) == 0){
+	if (ext.CompareNoCase(_A("vb")) == 0){
 	set(ptr, SCI_STYLESETFORE, 7, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 7, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -490,7 +492,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 8, 0xD6D8D5);
 	set(ptr, SCI_STYLESETBACK, 8, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("css")) == 0){
+	if (ext.CompareNoCase(_A("css")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x2928C8);
@@ -518,7 +520,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 12, 0xA85989);
 	set(ptr, SCI_STYLESETBACK, 12, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("pascal")) == 0){
+	if (ext.CompareNoCase(_A("pascal")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 9, 0x1F87F5);
@@ -542,7 +544,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 3, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 3, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("perl")) == 0){
+	if (ext.CompareNoCase(_A("perl")) == 0){
 	set(ptr, SCI_STYLESETFORE, 9, 0x1F87F5);
 	set(ptr, SCI_STYLESETBACK, 9, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
@@ -584,7 +586,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 20, 0x008C71);
 	set(ptr, SCI_STYLESETBACK, 20, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("python")) == 0){
+	if (ext.CompareNoCase(_A("python")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -614,7 +616,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 12, 0x008C71);
 	set(ptr, SCI_STYLESETBACK, 12, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("batch")) == 0){
+	if (ext.CompareNoCase(_A("batch")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -632,7 +634,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 7, 0x9F993E);
 	set(ptr, SCI_STYLESETBACK, 7, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("lua")) == 0){
+	if (ext.CompareNoCase(_A("lua")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -662,7 +664,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 15, 0x000000);
 	set(ptr, SCI_STYLESETBACK, 15, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("tex")) == 0){
+	if (ext.CompareNoCase(_A("tex")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x000000);
@@ -676,7 +678,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 5, 0x008C71);
 	set(ptr, SCI_STYLESETBACK, 5, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("nsis")) == 0){
+	if (ext.CompareNoCase(_A("nsis")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -716,7 +718,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 18, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 18, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("actionscript")) == 0){
+	if (ext.CompareNoCase(_A("actionscript")) == 0){
 	set(ptr, SCI_STYLESETFORE, 11, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 11, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 20, 0xAE7142);
@@ -752,7 +754,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 18, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 18, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("bash")) == 0){
+	if (ext.CompareNoCase(_A("bash")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x000000);
@@ -782,7 +784,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 13, 0x000000);
 	set(ptr, SCI_STYLESETBACK, 13, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("fortran")) == 0){
+	if (ext.CompareNoCase(_A("fortran")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -814,7 +816,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 14, 0x000000);
 	set(ptr, SCI_STYLESETBACK, 14, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("lisp")) == 0){
+	if (ext.CompareNoCase(_A("lisp")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -838,7 +840,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 12, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 12, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("asm")) == 0){
+	if (ext.CompareNoCase(_A("asm")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -870,7 +872,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 14, 0x000000);
 	set(ptr, SCI_STYLESETBACK, 14, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("ruby")) == 0){
+	if (ext.CompareNoCase(_A("ruby")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x000000);
@@ -914,7 +916,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 24, 0x008C71);
 	set(ptr, SCI_STYLESETBACK, 24, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("postscript")) == 0){
+	if (ext.CompareNoCase(_A("postscript")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -948,7 +950,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 15, 0x008C71);
 	set(ptr, SCI_STYLESETBACK, 15, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("vhdl")) == 0){
+	if (ext.CompareNoCase(_A("vhdl")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -984,7 +986,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 14, 0x000000);
 	set(ptr, SCI_STYLESETBACK, 14, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("smalltalk")) == 0){
+	if (ext.CompareNoCase(_A("smalltalk")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x008C71);
@@ -1020,7 +1022,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 16, 0x000000);
 	set(ptr, SCI_STYLESETBACK, 16, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("caml")) == 0){
+	if (ext.CompareNoCase(_A("caml")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x1F87F5);
@@ -1052,7 +1054,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 15, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 15, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("verilog")) == 0){
+	if (ext.CompareNoCase(_A("verilog")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 11, 0x1F87F5);
@@ -1082,7 +1084,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 19, 0x000000);
 	set(ptr, SCI_STYLESETBACK, 19, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("kix")) == 0){
+	if (ext.CompareNoCase(_A("kix")) == 0){
 	set(ptr, SCI_STYLESETFORE, 31, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 31, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -1104,7 +1106,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 9, 0x9F993E);
 	set(ptr, SCI_STYLESETBACK, 9, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("autoit")) == 0){
+	if (ext.CompareNoCase(_A("autoit")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -1136,7 +1138,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 14, 0x000000);
 	set(ptr, SCI_STYLESETBACK, 14, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("ada")) == 0){
+	if (ext.CompareNoCase(_A("ada")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0xAE7142);
@@ -1162,7 +1164,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 11, 0x000000);
 	set(ptr, SCI_STYLESETBACK, 11, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("matlab")) == 0){
+	if (ext.CompareNoCase(_A("matlab")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -1182,7 +1184,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 8, 0x008C71);
 	set(ptr, SCI_STYLESETBACK, 8, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("haskell")) == 0){
+	if (ext.CompareNoCase(_A("haskell")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x1F87F5);
@@ -1218,7 +1220,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 16, 0x8C908E);
 	set(ptr, SCI_STYLESETBACK, 16, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("inno")) == 0){
+	if (ext.CompareNoCase(_A("inno")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -1246,7 +1248,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 12, 0x1F87F5);
 	set(ptr, SCI_STYLESETBACK, 12, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("cmake")) == 0){
+	if (ext.CompareNoCase(_A("cmake")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 1, 0x8C908E);
@@ -1278,7 +1280,7 @@ void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString & ext){
 	set(ptr, SCI_STYLESETFORE, 14, 0x2928C8);
 	set(ptr, SCI_STYLESETBACK, 14, 0xFFFFFF);
 	}
-	if (ext.CompareNoCase(_T("searchResult")) == 0){
+	if (ext.CompareNoCase(_A("searchResult")) == 0){
 	set(ptr, SCI_STYLESETFORE, 0, 0x4C4D4D);
 	set(ptr, SCI_STYLESETBACK, 0, 0xFFFFFF);
 	set(ptr, SCI_STYLESETFORE, 6, 0xD6D8D5);

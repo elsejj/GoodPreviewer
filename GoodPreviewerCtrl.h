@@ -8,6 +8,7 @@
 #include <atlpreviewctrlimpl.h>
 
 #include "GoodPreviewer_i.h"
+#include <string>
 #include <Scintilla.h>
 
 using namespace ATL;
@@ -45,9 +46,9 @@ private:
 private:
 	CString mFileName;
 	HWND mEditorHwnd;
-	SciFnDirect mEditorFunc;
+	SciFnDirectStatus mEditorFunc;
 	sptr_t mEditorPtr;
 };
 
 
-void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CString& ext);
+void setThemeMonokai(SciFnDirect set, sptr_t ptr, const CStringA& ext);

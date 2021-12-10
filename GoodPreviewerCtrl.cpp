@@ -1,22 +1,26 @@
 #include "pch.h"
 #include "GoodPreviewerCtrl.h"
+#include <string>
+#include <ILexer.h>
 #include <Scintilla.h>
-#include <SciLexer.h>
+#include <Lexilla.h>
+#include <ScintillaTypes.h>
+#include <ScintillaCall.h>
 #include "FileLexInfo.h"
 
 
 
-FileLexInfo* fileExt(const CString& fileName) {
-	auto pos = fileName.ReverseFind(L'.');
-	CString ext(_T("cpp"));
+FileLexInfo* fileExt(const CStringA& fileName) {
+	auto pos = fileName.ReverseFind('.');
+	CStringA ext("cpp");
 	if (pos > 0) {
 		ext = fileName.Mid(pos + 1).MakeLower();
 	}
 
-	ext = _T(" ") + ext + _T(" ");
+	ext = " " + ext + " ";
 
 	for (FileLexInfo* fi = knonwLexInfos; fi->exts != NULL; fi++) {
-		if (StrStr(fi->exts, ext) != NULL) {
+		if (StrStrA(fi->exts, ext) != NULL) {
 			return fi;
 		}
 	}
@@ -35,17 +39,53 @@ LRESULT CGoodPreviewerCtrl::OnCreate( UINT nMsg, WPARAM wParam, LPARAM lParam, B
 		0, 0, 100, 100, this->m_hWnd , NULL, NULL, NULL);
 
 	if (mEditorHwnd != NULL) {
-		mEditorFunc = (SciFnDirect)SendMessage(
-			mEditorHwnd, SCI_GETDIRECTFUNCTION, 0, 0);
+		mEditorFunc = (SciFnDirectStatus)SendMessage(
+			mEditorHwnd, SCI_GETDIRECTSTATUSFUNCTION, 0, 0);
 
 		mEditorPtr = (sptr_t)SendMessage(mEditorHwnd, SCI_GETDIRECTPOINTER, 0, 0);
 	}
 	else {
 		mEditorFunc = NULL;
 		mEditorPtr = NULL;
+		bHandled = TRUE;
+		return S_OK;
 	}
 
 
+	Scintilla::ScintillaCall sc;
+	sc.SetFnPtr(mEditorFunc, mEditorPtr);
+
+
+	sc.SetMarginTypeN(0, Scintilla::MarginType::Number);
+	sc.SetMarginWidthN(0, 80);
+	sc.StyleSetFont(STYLE_DEFAULT, "Consolas");
+	sc.StyleSetSize(STYLE_DEFAULT, 10);
+	sc.SetTabWidth(4);
+
+	FileLexInfo* fi = fileExt(CStringA(mFileName));
+
+
+	if (fi != NULL) {
+		Scintilla::ILexer5* lexer = CreateLexer(fi->lex);
+		sc.SetILexer(lexer);
+
+
+		auto editorFunc = (SciFnDirect)SendMessage(
+			mEditorHwnd, SCI_GETDIRECTFUNCTION, 0, 0);
+
+
+
+		setThemeMonokai(editorFunc, mEditorPtr, fi->lex);
+
+		sc.SetKeyWords(0, fi->keywords[0]);
+		sc.SetKeyWords(1, fi->keywords[0]);
+	}
+
+	SetEditorText();
+	sc.SetReadOnly(true);
+
+
+	/*
 	if (mEditorFunc != NULL) {
 		mEditorFunc(mEditorPtr, SCI_SETMARGINTYPEN, 0, SC_MARGIN_NUMBER);
 		mEditorFunc(mEditorPtr, SCI_SETMARGINWIDTHN, 0, 80);
@@ -68,6 +108,7 @@ LRESULT CGoodPreviewerCtrl::OnCreate( UINT nMsg, WPARAM wParam, LPARAM lParam, B
 		SetEditorText();
 		mEditorFunc(mEditorPtr, SCI_SETREADONLY, 1, 0);
 	}
+	*/
 
 	bHandled = TRUE;
 	return 0;
@@ -93,6 +134,8 @@ void CGoodPreviewerCtrl::SetEditorText() {
 	if (mEditorFunc == NULL || mEditorPtr == NULL || mEditorHwnd == NULL) {
 		return;
 	}
+	Scintilla::ScintillaCall sc;
+	sc.SetFnPtr(mEditorFunc, mEditorPtr);
 
 	auto hFile = CreateFile(mFileName,
 		GENERIC_READ,
@@ -111,7 +154,8 @@ void CGoodPreviewerCtrl::SetEditorText() {
 		auto size= FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
 			NULL, err, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&msg , 0, NULL);
 
-		mEditorFunc(mEditorPtr, SCI_SETTEXT, NULL, (sptr_t)msg);
+		// mEditorFunc(mEditorPtr, SCI_SETTEXT, NULL, (sptr_t)msg);
+		sc.SetText(msg);
 		LocalFree(msg);
 		return;
 	}
@@ -122,7 +166,8 @@ void CGoodPreviewerCtrl::SetEditorText() {
 	char* buff = (char*)malloc(static_cast<size_t>(dwSizeLow) + 1);
 	if (buff != NULL && ReadFile(hFile, buff, dwSizeLow, &dwSizeLow, NULL)) {
 		buff[dwSizeLow] = 0;
-		mEditorFunc(mEditorPtr, SCI_SETTEXT, NULL, (sptr_t)buff);
+		//mEditorFunc(mEditorPtr, SCI_SETTEXT, NULL, (sptr_t)buff);
+		sc.SetText(buff);
 		free(buff);
 	}
 
